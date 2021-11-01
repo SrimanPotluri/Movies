@@ -39,7 +39,7 @@ const Movies = () => {
     }
 
     return (
-            <div>       
+            <>       
                 
             <header>
                 <form onSubmit={getMovieInfo}>
@@ -53,7 +53,7 @@ const Movies = () => {
                         <Movie key={movie.titleId} {...movie}/>
                     )}
                 </div>
-            </div>        
+            </>        
     );
 }
 

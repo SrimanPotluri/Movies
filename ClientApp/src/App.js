@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Container } from 'reactstrap';
-import { Route } from 'react-router';
-import Movies from './components/Movies';
 
 import './custom.css'
 
+import Movies from './components/Movies';
+
 const App = () => {
-    return <Container><Movies/></Container>
+    return <div><Movies/></div>
 }
 
 export default App;

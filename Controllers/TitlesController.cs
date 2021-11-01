@@ -26,10 +26,10 @@ namespace Movies.Controllers
         }
 
         [HttpGet]
-        public ActionResult<SearchResponse<Title>> Index(string searchTerm)
+        public ActionResult<SearchResponse<MovieView>> Index(string searchTerm)
         {
 
-            var searchResponse = new SearchResponse<Title>();
+            var searchResponse = new SearchResponse<MovieView>();
 
             if (string.IsNullOrEmpty(searchTerm))
             {
