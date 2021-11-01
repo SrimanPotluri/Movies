@@ -43,7 +43,7 @@ const Movies = () => {
                 
             <header>
                 <form onSubmit={getMovieInfo}>
-                    <input type="text" placeholder="search..." className="search" value={searchTerm} onChange={handleInputChange} />
+                    <input type="text" placeholder="search movies" className="search" value={searchTerm} onChange={handleInputChange} />
                 </form>
                 </header>
                 <div className="movie-container">
