@@ -16,6 +16,8 @@ namespace Movies.Models
 
         public List<MovieStoryLine> StoryLines { get; set; }
 
+        public List<string> AllGenres { get; set; }
+
 
         public MovieView()
         {
@@ -23,6 +25,7 @@ namespace Movies.Models
             Awards = new List<MovieAward>();
             TitleParticipants = new List<MovieTitleParticipant>();
             StoryLines = new List<MovieStoryLine>();
+            AllGenres = new List<string>();
 
         }
 

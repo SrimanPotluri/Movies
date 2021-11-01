@@ -17,11 +17,57 @@ namespace Movies.Repository
             _context = context;
         }
 
-        public List<Title> GetTitleBySearchTerm(string searchTerm)
+        public List<MovieView> GetTitleBySearchTerm(string searchTerm)
         {
+            var resultSet = new List<MovieView>();
             try
             {
-                return _context.Titles.Where(z => z.TitleName.Contains(searchTerm)).OrderBy(z => z.TitleName).ToList();
+                
+                var titles =  _context.Titles
+                    .Include(z => z.StoryLines)
+                    .Include(z => z.TitleGenres)
+                    .ThenInclude(z => z.Genre)
+                    .Where(z => EF.Functions.Like(z.TitleName, $"%{searchTerm}%"))
+                    .OrderBy(z => z.TitleName).ToList();
+
+                foreach(var titlegenres1 in titles)
+                {
+                    List<MovieStoryLine> storyLines = new List<MovieStoryLine>();
+                    foreach (var stroyLine in titlegenres1.StoryLines)
+                    {
+                        var newstroyLine = new MovieStoryLine
+                        {
+                            Description = stroyLine.Description,
+                            Language = stroyLine.Language,
+                            Type = stroyLine.Type
+                        };
+
+                        storyLines.Add(newstroyLine);
+                    }
+
+                 
+                    List<string> allGenres = new List<string>();
+                    foreach (var titleGenre in titlegenres1.TitleGenres)
+                    {
+                        allGenres.Add(titleGenre.Genre.Name);
+                        
+                    }
+
+
+                    var movieView = new MovieView
+                    {
+                        TitleName = titlegenres1.TitleName,
+                        ReleaseYear = titlegenres1.ReleaseYear,
+                        StoryLines = storyLines,
+                        AllGenres = allGenres
+                    };
+
+                    resultSet.Add(movieView);
+                }
+               
+
+
+                return resultSet;
 
             }
             catch(Exception e)
@@ -36,7 +82,7 @@ namespace Movies.Repository
             try
             {
 
-                var titlegenres1 = _context.Titles
+                var titlegenres1 =  _context.Titles
                     .Include(x => x.StoryLines)
                     .Include(x => x.Awards)
                     .Include(x => x.OtherNames)

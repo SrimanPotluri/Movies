@@ -9,7 +9,7 @@ namespace Movies.Repository
 {
     public interface ITitlesRepository
     {
-        List<Title> GetTitleBySearchTerm(string searchTerm);
+        List<MovieView> GetTitleBySearchTerm(string searchTerm);
 
        MovieView GetMovieViewByTitleId(int titleId);
     }
