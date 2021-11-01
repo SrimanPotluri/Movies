@@ -24,22 +24,21 @@ header {
 
 .search {
     font-family: inherit;
-    background-color: transparent;
     border-radius: 5px;
-    color: white;
+    color: grey;
     border: 2px solid lightblue;
     font-size: 1.2rem;
     padding: 0.5rem 1.5rem;
 }
 
-.search:focus{
-    outline: 0;
-}
+    .search:focus {
+        outline: 0;
+    }
 
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
 
 
@@ -52,30 +51,27 @@ header {
     position: relative;
 }
 
-.movie img{
-    object-fit: cover;
-    height: 400px;
-    width: 100%;
+    .movie img {
+        object-fit: cover;
+        height: 400px;
+        width: 100%;
+    }
 
-}
-
-.movie-container{
+.movie-container {
     display: flex;
     flex-wrap: wrap;
-
 }
 
-.movie-info{
+.movie-info {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1.5rem;
 }
 
-.movie-info h3{
-    margin: 0;
-
-}
+    .movie-info h3 {
+        margin: 0;
+    }
 
 .description {
     display: flex;
