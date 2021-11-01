@@ -28,6 +28,6 @@ So as a resort, switched to developing on EC2 Windows instance.
 Scope for Improvements:
 
 Make search universal that works on Actors names and movie alternate names. Make UI more user friendly and dynamic. Pull movie images from opensource database.
-Move the DB connection string to AppSettings.json, we can have different ones for each environment.
+Move the DB connection string to AppSettings.json, we can have different ones for each environment. Configure Https and secure the API's using JWT.
 
 
