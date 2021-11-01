@@ -48,7 +48,7 @@ header {
     margin: 1rem;
     border-radius: 3px;
     overflow: hidden;
-    width: 250px;
+    width: 300px;
     position: relative;
 }
 
@@ -76,6 +76,14 @@ header {
     margin: 0;
 
 }
+
+.description {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
 
 .movie-over {
     background-color: #fff;
