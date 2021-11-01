@@ -6,6 +6,8 @@ Public Url: http://test-lb-627375342.us-west-2.elb.amazonaws.com/
 
 Testing:
 
+Replace the Db Connection string in Entity/TitlesContext.cs with yours.
+
 Search works based on Movie TitleName, Use keywords such as "Casablanca" or partial search with letters (ex: "a", "de"). Hover over the images for storyline.
 
 Technologies used:
@@ -26,5 +28,6 @@ So as a resort, switched to developing on EC2 Windows instance.
 Scope for Improvements:
 
 Make search universal that works on Actors names and movie alternate names. Make UI more user friendly and dynamic. Pull movie images from opensource database.
+Move the DB connection string to AppSettings.json, we can have different ones for each environment.
 
 
