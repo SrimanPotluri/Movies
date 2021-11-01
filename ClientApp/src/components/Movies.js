@@ -1,8 +1,9 @@
-import React, { Component, useEffect, useState } from 'react';
-import { Input, Button, InputGroup, DropdownToggle, ButtonDropdown, DropdownMenu, InputGroupAddon, InputGroupText, DropdownItem } from 'reactstrap';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import Movie  from './Movie';
+import { Bounce, toast, ToastContainer, Zoom } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Movie from './Movie';
 import axios from 'axios';
 
 const Movies = () => {
@@ -26,11 +27,23 @@ const Movies = () => {
                     console.log(data);
                     setMovies(data);
                 }
+                else {
+                    toast.info("Search returned 0 results", {
+                        position: toast.POSITION.TOP_CENTER,
+                        autoClose: 5000,
+                        draggable: false,
+                        pauseOnHover: false,
+                        pauseOnFocusLoss: false,
+                        transition: Bounce,
+                        hideProgressBar: false,
+                        rtl: false
+                    });
+                }
             });
 
             setSearchTerm("");
         }
-        
+
     }
 
     const handleInputChange = (event) => {
@@ -39,21 +52,20 @@ const Movies = () => {
     }
 
     return (
-            <>       
-                
+        <>
+
             <header>
                 <form onSubmit={getMovieInfo}>
                     <input type="text" placeholder="search movies" className="search" value={searchTerm} onChange={handleInputChange} />
                 </form>
-                </header>
-                <div className="movie-container">
-               
-
-                    {movies.length > 0 && movies.map(movie =>
-                        <Movie key={movie.titleId} {...movie}/>
-                    )}
-                </div>
-            </>        
+            </header>
+            <div className="movie-container">
+                {movies.length > 0 && movies.map(movie =>
+                    <Movie key={movie.titleId} {...movie} />
+                )}
+            </div>
+            <ToastContainer />
+        </>
     );
 }
 
