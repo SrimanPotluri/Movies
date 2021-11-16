@@ -1,8 +1,8 @@
 # Movies
 Movies App - ReactJS and .net core 3.1
 
-Swagger: http://test-lb-627375342.us-west-2.elb.amazonaws.com/swagger
-Public Url: http://test-lb-627375342.us-west-2.elb.amazonaws.com/
+Swagger: http://test-2032382248.us-west-2.elb.amazonaws.com/swagger
+Public Url: http://test-2032382248.us-west-2.elb.amazonaws.com/
 
 Testing:
 
